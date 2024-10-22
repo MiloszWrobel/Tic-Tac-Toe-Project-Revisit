@@ -3,6 +3,7 @@ function App() {
     <>
       <h1>React Tic-Tac-Toe</h1>
       <p>New Thing</p>
+      <p>New new test</p>
     </>
   );
 }
