@@ -9,8 +9,12 @@ export default function Player({ name, symbol }) {
   }
 
   function handleNameChange(event) {
-    setPlayerName(event.target.value);
+    const newName = event.target.value;
+    if (newName.length <= 15) {
+      setPlayerName(newName);
+    }
   }
+
   let playerNameElement = <span className="player-name">{playerName}</span>;
 
   if (isEditing) {
@@ -20,7 +24,7 @@ export default function Player({ name, symbol }) {
         required
         value={playerName}
         onChange={handleNameChange}
-      ></input>
+      />
     );
   }
 
@@ -30,9 +34,7 @@ export default function Player({ name, symbol }) {
         {playerNameElement}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button on onClick={handleClick}>
-        {isEditing ? "save" : "edit"}
-      </button>
+      <button onClick={handleClick}>{isEditing ? "save" : "edit"}</button>
     </li>
   );
 }
