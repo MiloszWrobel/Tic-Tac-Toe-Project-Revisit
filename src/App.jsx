@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Menu from "./Components/Menu";
 import TwoPlayer from "./Components/TwoPlayer";
+import AiGame from "./Components/AiGame";
 
 function App() {
   const [gameMode, setGameMode] = useState("");
@@ -11,10 +12,13 @@ function App() {
 
   return (
     <>
-      {gameMode !== "2player" ? <Menu onSelectMode={setGameMode} /> : null}
+      {gameMode === "" ? <Menu onSelectMode={setGameMode} /> : undefined}
       {gameMode === "2player" ? (
         <TwoPlayer onReturnToMenu={handleReturnToMenu} />
-      ) : null}
+      ) : undefined}
+      {gameMode === "ai" ? (
+        <AiGame onReturnToMenu={handleReturnToMenu} />
+      ) : undefined}
     </>
   );
 }

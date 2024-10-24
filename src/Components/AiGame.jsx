@@ -1,5 +1,5 @@
 import Player from "./Player";
-import GameBoard from "./GameBoard";
+import AiGameBoard from "./AiGameBoard";
 import { useState } from "react";
 import Log from "./Log";
 import { WINNING_COMBINATIONS } from "../winning-combinations";
@@ -7,7 +7,7 @@ import GameOver from "./GameOver";
 
 const PLAYERS = {
   X: "Player1",
-  O: "Player2",
+  O: "Ai",
 };
 
 const INITIAL_GAME_BOARD = [
@@ -60,7 +60,7 @@ function deriveWinner(gameBoard, players) {
 
   return winner;
 }
-function TwoPlayer({ onReturnToMenu }) {
+function AiGame({ onReturnToMenu }) {
   const [gameTurns, setGameTurns] = useState([]);
   const [players, setPlayers] = useState(PLAYERS);
 
@@ -118,7 +118,7 @@ function TwoPlayer({ onReturnToMenu }) {
             onReturnToMenu={onReturnToMenu}
           />
         )}
-        <GameBoard handleSquare={handleSelectSquare} board={gameBoard} />
+        <AiGameBoard handleSquare={handleSelectSquare} board={gameBoard} />
         <button onClick={onReturnToMenu} className="common-button">
           {" "}
           Return to menu
@@ -129,4 +129,4 @@ function TwoPlayer({ onReturnToMenu }) {
   );
 }
 
-export default TwoPlayer;
+export default AiGame;
