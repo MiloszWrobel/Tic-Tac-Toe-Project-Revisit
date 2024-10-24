@@ -60,7 +60,7 @@ function deriveWinner(gameBoard, players) {
 
   return winner;
 }
-function TwoPlayer() {
+function TwoPlayer({ onReturnToMenu }) {
   const [gameTurns, setGameTurns] = useState([]);
   const [players, setPlayers] = useState(PLAYERS);
 
@@ -112,7 +112,11 @@ function TwoPlayer() {
           />
         </ol>
         {(winner || hasDraw) && (
-          <GameOver winner={winner} onRestart={handleRestart} />
+          <GameOver
+            winner={winner}
+            onRestart={handleRestart}
+            onReturnToMenu={onReturnToMenu}
+          />
         )}
         <GameBoard handleSquare={handleSelectSquare} board={gameBoard} />
       </div>

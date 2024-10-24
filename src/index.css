@@ -220,7 +220,7 @@ ol {
 
 #game-over button {
   display: block;
-  margin: 0 auto;
+  margin: 1rem auto;
   font-size: 1.5rem;
   background: none;
   border: 2px solid #ffffff;
@@ -229,14 +229,14 @@ ol {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s, color 0.2s;
-  box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
+  box-shadow: 0 0 8px rgba(170, 10, 130, 0.8);
 }
 
 #game-over button:hover {
   background: #ffffff;
   color: #000000;
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
+  box-shadow: 0 0 20px rgba(235, 57, 190, 0.8);
 }
 
 #log {
@@ -286,6 +286,31 @@ ol {
   margin-top: 1.5rem;
 }
 
+.common-button {
+  display: block;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  background: none;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s, color 0.2s;
+  box-shadow: 0 0 8px rgba(170, 10, 130, 0.8);
+
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7), -1px -1px 0 rgba(0, 0, 0, 0.7),
+    1px -1px 0 rgba(0, 0, 0, 0.7), -1px 1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.common-button:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(235, 57, 190, 0.8);
+  text-shadow: none;
+}
+
 @keyframes slide-in-from-left {
   0% {
     opacity: 0;
@@ -324,7 +349,7 @@ ol {
 @keyframes pulse {
   0% {
     border-color: #ffffff;
-    box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
+    box-shadow: 0 0 0 0 rgba(235, 57, 190, 0.8);
   }
   50% {
     border-color: #cccccc;
