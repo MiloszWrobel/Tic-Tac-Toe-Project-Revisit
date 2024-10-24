@@ -60,7 +60,7 @@ function deriveWinner(gameBoard, players) {
 
   return winner;
 }
-function AiGame({ onReturnToMenu }) {
+function AiGame({ onReturnToMenu, difficulty }) {
   const [gameTurns, setGameTurns] = useState([]);
   const [players, setPlayers] = useState(PLAYERS);
 
@@ -118,7 +118,11 @@ function AiGame({ onReturnToMenu }) {
             onReturnToMenu={onReturnToMenu}
           />
         )}
-        <AiGameBoard handleSquare={handleSelectSquare} board={gameBoard} />
+        <AiGameBoard
+          handleSquare={handleSelectSquare}
+          board={gameBoard}
+          difficulty={difficulty}
+        />
         <button onClick={onReturnToMenu} className="common-button">
           {" "}
           Return to menu

@@ -303,12 +303,46 @@ ol {
     1px -1px 0 rgba(0, 0, 0, 0.7), -1px 1px 0 rgba(0, 0, 0, 0.7);
 }
 
+/* Common button styling */
+.common-button {
+  display: block;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  background: none;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s, color 0.2s;
+  box-shadow: 0 0 8px rgba(170, 10, 130, 0.8);
+
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7), -1px -1px 0 rgba(0, 0, 0, 0.7),
+    1px -1px 0 rgba(0, 0, 0, 0.7), -1px 1px 0 rgba(0, 0, 0, 0.7);
+}
+
 .common-button:hover {
   background: #ffffff;
   color: #000000;
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(235, 57, 190, 0.8);
   text-shadow: none;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.dropdown-item {
+  margin: 0.5rem 0;
+  width: 90%;
 }
 
 @keyframes slide-in-from-left {
