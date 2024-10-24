@@ -1,26 +1,32 @@
 import { useEffect } from "react";
 import { WINNING_COMBINATIONS } from "../winning-combinations";
+import Minimax from "./Minimax";
 
 export default function AiGameBoard({ handleSquare, board, difficulty }) {
+  const minimax = Minimax(board); // Pass board directly
+
   useEffect(() => {
     const lastTurn = board.flat().filter(Boolean).length;
 
     if (lastTurn % 2 === 1) {
+      // Check if it's the AI's turn
       const aiMoveTimeout = setTimeout(() => {
         if (difficulty === "easy") {
           makeRandomMove();
         } else if (difficulty === "medium") {
           makeMediumMove();
         } else if (difficulty === "hard") {
-          makeHardMove();
+          const bestMove = minimax.findOptimalMove(); // Get the best move from Minimax
+          if (bestMove) {
+            handleSquare(bestMove.row, bestMove.col); // Make the move on the board
+          }
         }
-      }, 500); // Delay for AI's move
+      }, 500);
 
       return () => clearTimeout(aiMoveTimeout);
     }
-  }, [board, handleSquare, difficulty]);
+  }, [board, handleSquare, difficulty, minimax]);
 
-  // EASY: Random move
   const makeRandomMove = () => {
     const availableSquares = getAvailableSquares(board);
     if (availableSquares.length > 0) {
@@ -30,32 +36,24 @@ export default function AiGameBoard({ handleSquare, board, difficulty }) {
     }
   };
 
-  // MEDIUM: Random move, but block or win if possible
   const makeMediumMove = () => {
-    const winningMove = findWinningMove("O"); // AI symbol
-    const blockingMove = findWinningMove("X"); // Player symbol
+    const winningMove = findWinningMove("O");
+    const blockingMove = findWinningMove("X");
 
     if (winningMove) {
-      handleSquare(winningMove.row, winningMove.column); // Make winning move
+      handleSquare(winningMove.row, winningMove.column);
     } else if (blockingMove) {
-      handleSquare(blockingMove.row, blockingMove.column); // Block player
+      handleSquare(blockingMove.row, blockingMove.column);
     } else {
-      makeRandomMove(); // Otherwise, make a random move
+      makeRandomMove();
     }
   };
 
-  // HARD: Optimal move (e.g., Minimax)
-  const makeHardMove = () => {
-    const bestMove = findOptimalMove(); // Replace with real Minimax implementation
-    handleSquare(bestMove.row, bestMove.col);
-  };
-
-  // Helper: Get available squares
-  const getAvailableSquares = (board) => {
+  const getAvailableSquares = (currentBoard) => {
     const availableSquares = [];
     for (let row = 0; row < 3; row++) {
       for (let col = 0; col < 3; col++) {
-        if (!board[row][col]) {
+        if (!currentBoard[row][col]) {
           availableSquares.push({ row, col });
         }
       }
@@ -63,24 +61,17 @@ export default function AiGameBoard({ handleSquare, board, difficulty }) {
     return availableSquares;
   };
 
-  // Helper: Find winning or blocking move
   const findWinningMove = (playerSymbol) => {
     for (let combination of WINNING_COMBINATIONS) {
-      const squares = combination.map(({ row, column }) => board[row][column]); // Use 'column' here
+      const squares = combination.map(({ row, column }) => board[row][column]);
       const emptyIndex = squares.indexOf(null);
       const filledSquares = squares.filter((s) => s === playerSymbol).length;
 
       if (filledSquares === 2 && emptyIndex !== -1) {
-        return combination[emptyIndex]; // Return winning/blocking move
+        return combination[emptyIndex];
       }
     }
     return null;
-  };
-
-  // Dummy function for hard difficulty (replace with Minimax)
-  const findOptimalMove = () => {
-    // Dummy logic: random move for now
-    return getAvailableSquares(board)[0];
   };
 
   return (
