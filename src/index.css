@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   line-height: 1.5;
 
-  color: #ebe7ef;
+  color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,15 +18,15 @@ html {
 }
 
 body {
-  background: radial-gradient(
-      circle at top,
-      rgba(241, 210, 70, 0.98),
-      rgba(250, 176, 103, 0.87)
+  background: linear-gradient(
+      rgba(173, 216, 230, 0.1),
+      /* Light blue overlay */ rgba(173, 216, 230, 0.1)
     ),
-    url('bg-pattern-dark.png');
-  background-repeat: repeat;
-  background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
+    url("https://www.transparenttextures.com/patterns/paper.png"); /* New texture image */
+  background-color: #add8e6; /* Light blue fallback color */
+  background-repeat: no-repeat;
+  background-size: cover; /* Cover the whole background */
+  background-attachment: fixed; /* Keep the background fixed */
 }
 
 header {
@@ -41,10 +41,10 @@ header img {
 }
 
 h1 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 3rem;
   margin: 0 auto 3rem auto;
-  color: #3f3b00;
+  color: #ffffff;
 }
 
 #game-container {
@@ -52,7 +52,7 @@ h1 {
   margin: 3rem auto;
   padding: 2rem;
   border-radius: 6px;
-  background: linear-gradient(#383624, #282617);
+  background: linear-gradient(#333333, #111111);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
 }
@@ -75,20 +75,20 @@ h1 {
 }
 
 #players.highlight-player li.active {
-  border-color: #f6e35a;
+  border-color: #add8e6; /* Light blue border color */
   animation: pulse 2s infinite ease-in-out;
 }
 
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol {
-  color: #f6e35a;
+  color: #add8e6; /* Light blue text color */
 }
 
 #players button {
   width: 3rem;
   border: none;
   background: none;
-  color: #c3ba78;
+  color: #ffffff;
   font-size: 0.9rem;
   cursor: pointer;
   transition: color 0.2s;
@@ -97,7 +97,7 @@ h1 {
 }
 
 #players button:hover {
-  color: #f8ca31;
+  color: #cccccc;
 }
 
 .player {
@@ -111,7 +111,7 @@ h1 {
   display: inline-block;
   width: 10rem;
   font-size: 1rem;
-  color: #e1dec7;
+  color: #ffffff;
   text-transform: uppercase;
   margin: 0;
   padding: 0.5rem;
@@ -135,7 +135,7 @@ h1 {
 .player-symbol {
   margin-left: 1rem;
   font-size: 1rem;
-  color: #e1dec7;
+  color: #ffffff;
 }
 
 ol {
@@ -153,7 +153,7 @@ ol {
   background: none;
   color: #f8c031;
   border: none;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
   animation: pulse-text-size 2s infinite ease-out;
@@ -182,11 +182,11 @@ ol {
   width: 8rem;
   height: 8rem;
   border: none;
-  background: #aca788;
-  color: #3f3b00;
+  background: #333333;
+  color: #ffffff;
   font-size: 5rem;
   cursor: pointer;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   padding: 1rem;
 }
 
@@ -200,22 +200,22 @@ ol {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(40, 38, 23, 0.95);
+  background-color: rgba(0, 0, 0, 0.95);
   animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
 }
 
 #game-over h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-align: center;
-  color: #fcd256;
+  color: #ffffff;
   margin: 0;
 }
 
 #game-over p {
   font-size: 2rem;
   text-align: center;
-  color: #e1dec7;
+  color: #ffffff;
 }
 
 #game-over button {
@@ -223,8 +223,8 @@ ol {
   margin: 0 auto;
   font-size: 1.5rem;
   background: none;
-  border: 2px solid #fcd256;
-  color: #fcd256;
+  border: 2px solid #ffffff;
+  color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -233,15 +233,15 @@ ol {
 }
 
 #game-over button:hover {
-  background: #fcd256;
-  color: #3f3b00;
+  background: #ffffff;
+  color: #000000;
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
 }
 
 #log {
   max-width: 20rem;
-  color: #3f3b00;
+  color: #ffffff;
   list-style: none;
   margin: 2rem auto;
   padding: 0;
@@ -249,9 +249,10 @@ ol {
 }
 
 #log li {
-  border-radius: 4px;
-  animation: slide-in-from-left 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  margin: 0.75rem;
+  color: white; /* White text color */
+  padding: 0.5rem 0; /* Padding for better spacing */
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000; /* Black border effect around the text */
 }
 
 #log li.highlighted {
@@ -261,11 +262,11 @@ ol {
 
 #game-hints {
   text-align: center;
-  color: #46432f;
+  color: #ffffff;
 }
 
 #game-hints h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 2rem;
   margin: 0;
 }
@@ -298,13 +299,13 @@ ol {
 
 @keyframes pulse-text {
   0% {
-    color: #e1dec7;
+    color: #ffffff;
   }
   50% {
-    color: #9f9d83;
+    color: #cccccc;
   }
   100% {
-    color: #e1dec7;
+    color: #ffffff;
   }
 }
 
@@ -322,15 +323,15 @@ ol {
 
 @keyframes pulse {
   0% {
-    border-color: #f6e35a;
+    border-color: #ffffff;
     box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
   }
   50% {
-    border-color: #f8c031;
+    border-color: #cccccc;
     box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
   }
   100% {
-    border-color: #f6e35a;
+    border-color: #ffffff;
     box-shadow: 0 0 0 0 rgba(246, 227, 90, 0);
   }
 }
